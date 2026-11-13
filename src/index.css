@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ─── 1. Atelier Rose (Default Signature) ─────────────────────────────── */
+  :root,
+  [data-theme="rose"] {
+    --bg-base: 255 248 244;       /* #FFF8F4 */
+    --bg-card: 255 255 255;       /* #FFFFFF */
+    --text-main: 74 37 69;        /* #4A2545 */
+    --text-muted: 114 66 108;     /* #72426C */
+    --primary: 201 79 124;        /* #C94F7C */
+    --primary-hover: 163 52 94;   /* #A3345E */
+    --primary-soft: 252 228 236;  /* #FCE4EC */
+    --accent: 212 175 55;         /* #D4AF37 */
+    --accent-soft: 244 227 197;   /* #F4E3C5 */
+    --border-color: 247 183 201;  /* #F7B7C9 */
+  }
+
+  /* ─── 2. Plum Noir (Velvet Midnight) ──────────────────────────────────── */
+  [data-theme="plum"] {
+    --bg-base: 30 14 29;          /* #1E0E1D */
+    --bg-card: 42 20 39;          /* #2A1427 */
+    --text-main: 255 248 244;     /* #FFF8F4 */
+    --text-muted: 230 199 156;    /* #E6C79C */
+    --primary: 247 183 201;       /* #F7B7C9 */
+    --primary-hover: 224 108 154; /* #E06C9A */
+    --primary-soft: 74 37 69;     /* #4A2545 */
+    --accent: 212 175 55;         /* #D4AF37 */
+    --accent-soft: 49 20 46;      /* #31142E */
+    --border-color: 114 66 108;   /* #72426C */
+  }
+
+  /* ─── 3. Matcha Silk (Quiet Luxury Sage) ──────────────────────────────── */
+  [data-theme="sage"] {
+    --bg-base: 246 248 245;       /* #F6F8F5 */
+    --bg-card: 255 255 255;       /* #FFFFFF */
+    --text-main: 30 51 36;        /* #1E3324 */
+    --text-muted: 74 99 78;       /* #4A634E */
+    --primary: 110 139 112;       /* #6E8B70 */
+    --primary-hover: 82 108 84;   /* #526C54 */
+    --primary-soft: 232 240 233;  /* #E8F0E9 */
+    --accent: 200 178 130;        /* #C8B282 */
+    --accent-soft: 242 238 226;   /* #F2EEE2 */
+    --border-color: 180 205 182;  /* #B4CDB6 */
+  }
+
+  /* ─── 4. Lavender Mist (Haute Lilac & Frost) ──────────────────────────── */
+  [data-theme="lavender"] {
+    --bg-base: 250 248 252;       /* #FAF8FC */
+    --bg-card: 255 255 255;       /* #FFFFFF */
+    --text-main: 52 36 58;        /* #34243A */
+    --text-muted: 106 82 115;     /* #6A5273 */
+    --primary: 139 111 150;       /* #8B6F96 */
+    --primary-hover: 114 88 124;  /* #72587C */
+    --primary-soft: 242 236 247;  /* #F2ECF7 */
+    --accent: 222 203 183;        /* #DECBB7 */
+    --accent-soft: 245 240 234;   /* #F5F0EA */
+    --border-color: 218 200 228;  /* #DAC8E4 */
+  }
+
+  /* ─── 5. Espresso Royale (Rich Academia & Terracotta) ─────────────────── */
+  [data-theme="espresso"] {
+    --bg-base: 250 245 238;       /* #FAF5EE */
+    --bg-card: 255 255 255;       /* #FFFFFF */
+    --text-main: 44 30 24;        /* #2C1E18 */
+    --text-muted: 108 80 68;      /* #6C5044 */
+    --primary: 162 88 82;         /* #A25852 */
+    --primary-hover: 136 68 62;   /* #88443E */
+    --primary-soft: 247 235 230;  /* #F7EBE6 */
+    --accent: 209 155 76;         /* #D19B4C */
+    --accent-soft: 247 236 218;   /* #F7ECDA */
+    --border-color: 228 195 180;  /* #E4C3B4 */
+  }
+
+  /* ─── 6. Midnight Sapphire (Celestial Starlight) ──────────────────────── */
+  [data-theme="sapphire"] {
+    --bg-base: 11 17 32;          /* #0B1120 */
+    --bg-card: 20 30 55;          /* #141E37 */
+    --text-main: 248 250 252;     /* #F8FAFC */
+    --text-muted: 147 197 253;    /* #93C5FD */
+    --primary: 240 182 200;       /* #F0B6C8 */
+    --primary-hover: 225 152 174; /* #E198AE */
+    --primary-soft: 30 41 59;     /* #1E293B */
+    --accent: 245 158 11;         /* #F59E0B */
+    --accent-soft: 30 58 138;     /* #1E3A8A */
+    --border-color: 51 65 85;     /* #334155 */
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased min-h-screen transition-colors duration-300;
+    background-color: rgb(var(--bg-base));
+    color: rgb(var(--text-main));
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--primary) / 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--primary) / 0.5);
+  }
+
+  ::selection {
+    background: rgb(var(--primary-soft));
+    color: rgb(var(--text-main));
+  }
+}
+
+@layer components {
+  /* Editorial card */
+  .card {
+    @apply bg-white/60 dark:bg-plum-darkCard backdrop-blur-xl rounded-2xl border border-rose-blush/25 dark:border-plum-light/20 shadow-rose-glow transition-colors duration-300;
+  }
+
+  /* Label style */
+  .label-editorial {
+    @apply text-xs font-sans font-medium tracking-editorial uppercase text-plum-light dark:text-gold-champagne/70;
+  }
+
+  /* Gold hairline */
+  .hairline-gold {
+    @apply border-t border-gold/30;
+  }
+
+  /* Focus guardian overlay */
+  .guardian-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center;
+    background: rgba(var(--text-main), 0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Progress ring */
+  .progress-ring {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+  /* Grain texture overlay */
+  .grain::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none opacity-[0.03];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-gradient-rose {
+    background: linear-gradient(135deg, rgb(var(--primary)), rgb(var(--border-color)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-soft)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .backdrop-rose {
+    backdrop-filter: blur(20px) saturate(1.5);
+  }
+
+  .animate-bloom {
+    animation: bloom 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  @keyframes bloom {
+    0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Rose garden flower bloom */
+  .flower-done {
+    animation: flowerBloom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  @keyframes flowerBloom {
+    0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+    80% { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+}
